@@ -1,0 +1,10 @@
+steps:
+
+- id: docker
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['build', '--build-arg', 'THE_SECRET', '.']
+  secretEnv: ['THE_SECRET']
+secrets:
+- kmsKeyName: projects/hobbs-tinkering/locations/global/keyRings/tinkering/cryptoKeys/cloud-build-demo
+  secretEnv:
+    THE_SECRET: CiQATajs0GI7
